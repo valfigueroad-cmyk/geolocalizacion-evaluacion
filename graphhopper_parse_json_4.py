@@ -89,4 +89,11 @@ while True:
             print(f"Mensaje: {route_data.get('message', 'Error desconocido')}")
     else:
         print("No se pudo obtener coordenadas válidas para ambas ubicaciones.")
+instrucciones = route_data["paths"][0]["instructions"]
+print("\n📌 Instrucciones del viaje:")
+for paso in instrucciones:
+    texto = paso["text"]
+    distancia = round(paso["distance"] / 1000, 2)
+    duracion = round(paso["time"] / 60000, 2)
+    print(f"- {texto} ({distancia} km, {duracion} min)")
 
